@@ -1,0 +1,195 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 300 1.6rem/1.5 $ff;
+    color: $dark;
+}
+.container {
+    min-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section {
+  padding: 110px 0;
+    text-align: center;
+    &--bg{
+        color: $light;
+        background-color: $brand;
+        background-position: center;
+        background-size: center;
+        background-repeat: no-repeat;
+    }
+    &__wrap {
+        padding: 30px 120px;
+        &--bordered {
+            border: $b-width solid $dark;
+            border-top: 0;
+            position: relative;
+            padding-top: 0;
+            margin: 0 250px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 25%;
+                border-top: $b-width solid $dark;
+            }
+            &:before {
+                left: 0;
+            }
+            &:after {
+                right: 0;
+            } 
+            
+            .section--bg & {
+                border-color: $light;
+                &:before,
+                &:after {
+                    content: '';
+                    border-color: $light;
+                }
+            }
+        }
+    }
+    &__title,
+    &__subtitle {
+        text-transform: uppercase;
+    }
+    &__title{
+        letter-spacing: 0.16em;
+        .section__wrap--bordered & {
+            transform: translate(0, -50%);
+            padding: 0 20%;
+        }
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 1.5rem;
+       
+    }
+
+}
+
+header {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 5.4rem;
+}
+h2 {
+    font-size:  3.4rem;
+}
+h3 {
+    font-size: 2rem;
+}
+.logo {
+    &--light {
+        stroke: $light;
+        fill: $light;
+    }
+}
+.scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    fill: $light;
+    @include hover {
+        fill: $dark;
+    }
+}
+
+.servise {
+    margin: 80px 0;
+    &__title {
+       text-transform: uppercase;
+       margin: 30px 0;
+       letter-spacing: 1.16rem;
+       svg {
+           fill: $dark;
+       }
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    border: $b-width solid $dark;
+    outline: none;
+    background-color: $dark;
+    color: $light;
+    padding: 20px;
+    margin: 30px;
+    font-weight: 400;
+    letter-spacing: 0.16rem;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+    @include hover {
+        color: $dark;
+        background-color: $light;
+
+    }
+}
+
+.copyright {
+    margin-top: 110px;
+    &__text {
+        vertical-align: middle;
+        margin-left: 30px;
+    }
+    svg {
+        vertical-align: middle;
+        stroke: $dark;
+        fill: $dark;
+    } 
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: 30% auto 30%;
+    grid-template-rows: repeat(2, 230px);
+    grid-gap: 10px;
+   &__item{
+        position: relative;
+        overflow: hidden;
+    }
+    &__img {
+        @include pCenter;
+        min-width: 100%;
+        min-height: 100%;
+        @include hover {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+    }
+
+    &__name {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        right: 60px;
+        text-transform: uppercase;
+        color: $light;
+        font-size: 3.4rem;
+        font-weight: 700;
+        letter-spacing: .16rem;
+
+    }
+
+
+}
